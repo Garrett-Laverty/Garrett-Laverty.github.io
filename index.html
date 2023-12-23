@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--Garrett Laverty, 5/11/2023, CSE383, Final Assignment-->
+<html lang="en">
+
+<head>
+  <title>Landing Page</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="Style_final.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-inverse">
+    <ul class="nav navbar-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="lookup.html">Stocks</a></li>
+      <li><a href="history.html">Stock History</a></li>
+    </ul>
+  </nav>
+  <div id="homePage">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-12 box">
+
+          <h1>Welcome</h1>
+          <p>My name is Garrett Laverty. For CSE383 I created a 3 page website which allows a user to look-up stock
+            information and then request history of requests made on a certain day.</p>
+          <h2>Explanation</h2>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6 box">
+          <h3>Displaying Stock Details</h3>
+          <p>After selecting a stock exchange, a call is done to polygon to retrieve the first 900 stocks on that
+            exchange and populates the next dropdown with the results.</p>
+            <img src="Pic1.png" alt="Picture of code for retrieving stocks from an exchange" class="homeImg">
+          <p>If the detail button is pressed, another call is done to polygon to retrieve details about the stock. That
+            information is displayed by setting values as shown in the picture below. This information is also stored in
+            an object that will be sent to the database used on the history tab.</p>
+            <img src="Pic2.png" alt="Picture of code for retrieving details of a stock" class="homeImg">
+          <p>An additional call is done get the closing prices of the past 7 days. This information is then sent to the
+            "fillChart" method which uses chart.js to create a chart to display the data.</p>
+            <img src="Pic3.png" alt="Picture of code for creating charts" class="homeImg">
+        </div>
+
+        <div class="col-md-6 box">
+          <h3>Displaying Stock News</h3>
+          <p>After selecting a stock exchange, a call is done to polygon to retrieve the first 900 stocks on that
+            exchange and populates the next dropdown with the results.</p>
+          <img src="Pic1.png" alt="Picture of code for retrieving stocks from an exchange" class="homeImg">
+          <p>If the news button is pressed, another call is done the polygon to retrieve recent news articles that
+            relate to the selected stock. A for loop is used to loop through the results and add them to the correct
+            location. This information is also stored in an object that will be sent to the database used on the history
+            tab.</p>
+          <img src="Pic4.png" alt="Picture of code for retrieving new articles pertaining to a stock" class="homeImg">
+        </div>
+      </div>
+        <div class="row justify-content-center">
+          <div class="col-md-12 box">
+            <h3>Displaying Stock Request History</h3>
+            <p>After selecting a day and max number of results, the "Get Results" button will become enabled.
+              When pressed, a call to the database will be performed, and a for loop will be used to generate a table and add
+              data to an array of results. All even rows will be populated with the date, type, and stock of a request.
+              All odd rows will be hidden until the "toggle display" button of the previous row is pressed. </p>
+            <img src="Pic5.png" alt="Picture of code for creating the results table" class="homeImg">
+              <p>Then, the information in the array be used to display the information that was displayed 
+                when the original request was made, in the same manner as before with the only difference being that
+                in this instace, no additional JSON object needs to be made, and the hidden attribute is removed.</p>
+            <img src="Pic6.png" alt="Picture of code to hide/show rows" class="homeImg">
+          </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

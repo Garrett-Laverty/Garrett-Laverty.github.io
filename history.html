@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--Garrett Laverty, 5/11/2023, CSE383, Final Assignment-->
+<html lang="en">
+<head>
+<title>Stock History</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="Style_final.css">
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="stockWork.js"></script>
+<script src="stockHistory.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+    <ul class="nav navbar-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="lookup.html">Stocks</a></li>
+      <li><a href="history.html">Stock History</a></li>
+    </ul>
+  </nav>
+
+      <div id="displayPage">
+        <div id="selections">
+          <label for="stocksDate">Choose a date:</label>
+          <input type="date" id="stocksDate" name="stocksDate" onchange="toggleButton()"><br>
+          <label for="stocksLine">Max number of results:</label>
+          <input type="number" id="stockLines" name="stockLines" value="10"><br>
+          <button type="button" id="historyButton" onclick="getData()" disabled>Get Results</button>
+        </div>
+        <div id="noResults"></div>
+
+        <table id="displayTable">
+          <thead><tr><th class="displayTableHead">Time of Request</th><th class="displayTableHead">Type</th><th class="displayTableHead">Stock</th><th class="displayTableHead">Display Buttons</th></tr></thead>
+          <tbody id="lookUps">
+          </tbody>
+        </table>
+      </div>
+</body>
+</html>
