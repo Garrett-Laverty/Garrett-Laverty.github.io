@@ -20,6 +20,7 @@ function getData() {
 	}).done(function(data) {
 		$("#lookUps").html("");
 		$("#noResults").html("");
+        console.log(data.message);
         var len;
         if (maxLines == 0 || maxLines >= data.result.length) {
             len = data.result.length;
